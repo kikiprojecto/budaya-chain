@@ -10,8 +10,7 @@
     "type-check": "tsc --noEmit",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage",
-    "verify": "node verify-setup.js"
+    "test:coverage": "jest --coverage"
   },
   "dependencies": {
     "@coral-xyz/anchor": "^0.29.0",
