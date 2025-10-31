@@ -1,14 +1,13 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
+import { Inter } from "next/font/google"
 import "./globals.css"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 import { SolanaWalletProvider } from "@/components/providers/wallet-provider"
 import { Toaster } from "@/components/ui/sonner"
 
-const geistSans = Geist({ subsets: ["latin"] })
-const geistMono = Geist_Mono({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "BUDAYA CHAIN - Preserving Indonesian Cultural Heritage",
@@ -29,7 +28,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="id" suppressHydrationWarning>
-      <body className={`${geistSans.className} bg-background text-foreground antialiased`}>
+      <body className={`${inter.className} bg-background text-foreground antialiased`}>
         <SolanaWalletProvider>
           <Header />
           <main className="min-h-screen">{children}</main>
