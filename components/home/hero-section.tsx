@@ -15,11 +15,11 @@ export function HeroSection() {
             <span className="text-sm font-medium text-foreground">Web3 Powered Heritage Platform</span>
           </div>
 
-          {/* Main headline - NORMAL SIZE */}
-          <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-            <span className="block text-[#8B4513]">Preserving</span>
-            <span className="block bg-gradient-to-r from-[#8B4513] via-[#FFD700] to-[#8B4513] bg-clip-text text-transparent">
-              Indonesia's Soul
+          {/* Main headline - ORIGINAL SIZE */}
+          <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
+            <span className="block text-[#8B4513]">Preserving Indonesia{"'"}s Soul, Powered by </span>
+            <span className="bg-gradient-to-r from-[#8B4513] via-[#FFD700] to-[#8B4513] bg-clip-text text-transparent">
+              Blockchain
             </span>
           </h1>
 
