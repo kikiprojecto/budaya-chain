@@ -15,15 +15,17 @@ export function HeroSection() {
             <span className="text-sm font-medium text-foreground">Web3 Powered Heritage Platform</span>
           </div>
 
-          {/* Main headline */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-foreground mb-6 text-balance">
-            Preserving Indonesia{"'"}s Soul, Powered by{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Blockchain</span>
+          {/* Main headline - NORMAL SIZE */}
+          <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+            <span className="block text-[#8B4513]">Preserving</span>
+            <span className="block bg-gradient-to-r from-[#8B4513] via-[#FFD700] to-[#8B4513] bg-clip-text text-transparent">
+              Indonesia's Soul
+            </span>
           </h1>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-12 text-pretty leading-relaxed">
-            Empower artisans with verifiable ownership, secure transactions, and fair compensation for authentic
-            Indonesian cultural products.
+          <p className="font-serif text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed italic mb-12">
+            "Empowering 10 million artisans with blockchain technology, 
+            ensuring cultural heritage thrives for generations to come."
           </p>
 
           {/* CTA Buttons */}
