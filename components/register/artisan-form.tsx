@@ -3,23 +3,66 @@
 import type React from "react"
 
 import { useState } from "react"
+import { useWallet } from "@solana/wallet-adapter-react"
 import { Button } from "@/components/ui/button"
+import { toast } from "sonner"
 
 export function ArtisanForm({ currentStep, setCurrentStep }: any) {
+  const { publicKey } = useWallet()
+  const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     craftType: "",
     region: "",
     experience: "",
+    bio: "",
     portfolioFiles: [],
     govId: "",
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (currentStep < 3) {
+    
+    if (currentStep < 2) {
       setCurrentStep(currentStep + 1)
+      return
+    }
+
+    // Final submission
+    if (!publicKey) {
+      toast.error("Please connect your wallet first")
+      return
+    }
+
+    setLoading(true)
+    try {
+      const response = await fetch('/api/artisans', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          wallet_address: publicKey.toBase58(),
+          name: formData.name,
+          category: formData.craftType,
+          region: formData.region,
+          bio: formData.bio || `${formData.craftType} artisan from ${formData.region} with ${formData.experience} years of experience.`,
+          portfolio_images: [],
+        }),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Registration failed')
+      }
+
+      toast.success("Registration successful! Awaiting verification.")
+      setCurrentStep(3)
+    } catch (error: any) {
+      console.error('Registration error:', error)
+      toast.error(error.message || 'Registration failed')
+    } finally {
+      setLoading(false)
     }
   }
 

@@ -28,8 +28,11 @@ const nextConfig = {
         crypto: false,
       };
     }
+    config.externals.push('pino-pretty', 'lokijs', 'encoding');
     return config;
   },
+  
+  transpilePackages: ['@solana/wallet-adapter-base'],
   
   // Security headers
   async headers() {

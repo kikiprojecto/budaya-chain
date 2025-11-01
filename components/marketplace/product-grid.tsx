@@ -1,10 +1,10 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { ProductModal } from "./product-modal"
 
-const products = [
+const mockProducts = [
   {
     id: 1,
     name: "Hand-Woven Batik Sarong",
@@ -53,6 +53,44 @@ const products = [
 
 export function ProductGrid({ filters }: any) {
   const [selectedProduct, setSelectedProduct] = useState(null)
+  const [products, setProducts] = useState<any[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    fetchProducts()
+  }, [])
+
+  const fetchProducts = async () => {
+    try {
+      const response = await fetch('/api/products?status=listed')
+      const data = await response.json()
+      if (data.products) {
+        // Transform API data to match component format
+        const transformedProducts = data.products.map((p: any) => ({
+          id: p.id,
+          name: p.title,
+          artisan: p.artisans?.name || 'Unknown Artisan',
+          price: p.price,
+          region: p.region,
+          craft: p.category,
+          verified: p.artisans?.verified || false,
+          image: p.images?.[0] || mockProducts[0].image,
+        }))
+        setProducts(transformedProducts)
+      } else {
+        setProducts(mockProducts)
+      }
+    } catch (error) {
+      console.error('Error fetching products:', error)
+      setProducts(mockProducts)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  if (loading) {
+    return <div className="text-center py-12">Loading products...</div>
+  }
 
   const filteredProducts = products.filter((p) => {
     if (filters.region !== "all" && p.region !== filters.region) return false

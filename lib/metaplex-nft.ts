@@ -1,4 +1,4 @@
-import { Metaplex, keypairIdentity, bundlrStorage, toMetaplexFile } from '@metaplex-foundation/js';
+import { Metaplex, keypairIdentity, toMetaplexFile } from '@metaplex-foundation/js';
 import { Connection, Keypair, PublicKey } from '@solana/web3.js';
 import { RPC_ENDPOINT } from './solana-config';
 
@@ -46,12 +46,7 @@ export function createMetaplexInstance(
   payer: Keypair
 ): Metaplex {
   return Metaplex.make(connection)
-    .use(keypairIdentity(payer))
-    .use(bundlrStorage({
-      address: 'https://devnet.bundlr.network',
-      providerUrl: RPC_ENDPOINT,
-      timeout: 60000,
-    }));
+    .use(keypairIdentity(payer));
 }
 
 /**

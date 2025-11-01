@@ -2,13 +2,25 @@
 
 import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
 import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
-import { WalletModalProvider } from '@solana/wallet-adapter-react-ui';
 import { PhantomWalletAdapter, SolflareWalletAdapter } from '@solana/wallet-adapter-wallets';
 import { useMemo } from 'react';
 import { RPC_ENDPOINT, SOLANA_NETWORK } from '@/lib/solana-config';
+import { CustomWalletModalProvider, useCustomWalletModal } from '@/hooks/useCustomWalletModal';
+import { ConnectWalletModal } from '@/components/wallet/ConnectWalletModal';
 
-// Import wallet adapter CSS
-import '@solana/wallet-adapter-react-ui/styles.css';
+/**
+ * Wallet Modal Wrapper - renders the custom modal
+ */
+function WalletModalWrapper() {
+  const { visible, setVisible } = useCustomWalletModal();
+  
+  return (
+    <ConnectWalletModal 
+      isOpen={visible} 
+      onClose={() => setVisible(false)} 
+    />
+  );
+}
 
 /**
  * Solana Wallet Provider
@@ -27,9 +39,10 @@ export function SolanaWalletProvider({ children }: { children: React.ReactNode }
   return (
     <ConnectionProvider endpoint={RPC_ENDPOINT}>
       <WalletProvider wallets={wallets} autoConnect>
-        <WalletModalProvider>
+        <CustomWalletModalProvider>
           {children}
-        </WalletModalProvider>
+          <WalletModalWrapper />
+        </CustomWalletModalProvider>
       </WalletProvider>
     </ConnectionProvider>
   );

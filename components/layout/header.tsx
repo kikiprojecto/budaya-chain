@@ -3,6 +3,7 @@
 import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { WalletButton } from "@/components/wallet/WalletButton"
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -39,9 +40,7 @@ export function Header() {
 
           {/* Wallet & Language */}
           <div className="flex items-center gap-2 sm:gap-4">
-            <Button className="bg-accent text-foreground hover:bg-accent-dark text-sm sm:text-base">
-              Connect Wallet
-            </Button>
+            <WalletButton />
             <button className="text-sm text-muted-foreground hover:text-foreground hidden sm:block">EN / ID</button>
 
             <button

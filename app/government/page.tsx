@@ -1,9 +1,41 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import { ImpactCards } from "@/components/government/impact-cards"
 import { RegionalImpact } from "@/components/government/regional-impact"
 import { HeritageStats } from "@/components/government/heritage-stats"
 import { EconomicTimeline } from "@/components/government/economic-timeline"
 
 export default function GovernmentPage() {
+  const [stats, setStats] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchStats();
+  }, []);
+
+  const fetchStats = async () => {
+    try {
+      const response = await fetch('/api/analytics/dashboard');
+      const data = await response.json();
+      if (data.success) {
+        setStats(data.data);
+      }
+    } catch (error) {
+      console.error('Error fetching stats:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-16 w-16 border-4 border-primary border-t-transparent" />
+      </div>
+    );
+  }
+
   return (
     <div className="py-12 md:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

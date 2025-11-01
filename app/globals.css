@@ -1,5 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "../styles/wallet-adapter.css";
+@import "../styles/wallet-adapter-override.css";
 
 @custom-variant dark (&:is(.dark *));
 
