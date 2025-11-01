@@ -20,9 +20,9 @@
   justify-content: center !important;
   padding: 2rem 1rem !important;
   z-index: 99999 !important;
-  background: rgba(74, 4, 4, 0.85) !important;
-  backdrop-filter: blur(16px) !important;
-  -webkit-backdrop-filter: blur(16px) !important;
+  background: rgba(0, 0, 0, 0.5) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
   overflow-y: auto !important;
 }
 
@@ -33,9 +33,9 @@
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  background: rgba(74, 4, 4, 0.85) !important;
-  backdrop-filter: blur(16px) !important;
-  -webkit-backdrop-filter: blur(16px) !important;
+  background: rgba(0, 0, 0, 0.5) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
 }
 
 /* Modal container - FORCE CENTER */

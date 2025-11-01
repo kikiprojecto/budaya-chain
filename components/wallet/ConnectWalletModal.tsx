@@ -60,15 +60,15 @@ export function ConnectWalletModal({ isOpen, onClose }: ConnectWalletModalProps)
         padding: '16px'
       }}
     >
-      {/* Backdrop with blur */}
+      {/* Backdrop with clean blur */}
       <div
         onClick={onClose}
         style={{
           position: 'absolute',
           inset: 0,
-          backgroundColor: 'rgba(74, 4, 4, 0.85)',
-          backdropFilter: 'blur(16px)',
-          WebkitBackdropFilter: 'blur(16px)'
+          backgroundColor: 'rgba(0, 0, 0, 0.5)',
+          backdropFilter: 'blur(12px)',
+          WebkitBackdropFilter: 'blur(12px)'
         }}
       />
 
