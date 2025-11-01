@@ -2,6 +2,9 @@
    WALLET MODAL - BUDAYA CHAIN STYLE
    ======================================== */
 
+/* Import Indonesian Wayang-style decorative font */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap');
+
 /* Backdrop wrapper - FORCE FULL SCREEN CENTER */
 .wallet-adapter-modal-wrapper {
   position: fixed !important;
@@ -61,7 +64,7 @@
   padding: 1.5rem !important;
 }
 
-/* Modal title - SANS SERIF */
+/* Modal title - INDONESIAN WAYANG STYLE */
 .wallet-adapter-modal-title,
 .wallet-adapter-modal-title[style] {
   display: block !important;
@@ -69,13 +72,15 @@
   opacity: 1 !important;
   position: relative !important;
   color: #FFD700 !important;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif !important;
-  font-size: 20px !important;
-  font-weight: 600 !important;
+  font-family: 'Cinzel Decorative', 'Trajan Pro', 'Playfair Display', serif !important;
+  font-size: 22px !important;
+  font-weight: 700 !important;
   text-align: center !important;
   margin-bottom: 1.5rem !important;
   padding: 0 !important;
-  letter-spacing: -0.01em !important;
+  letter-spacing: 0.05em !important;
+  text-transform: capitalize !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4) !important;
 }
 
 /* Wallet list - scrollable area */
