@@ -15,22 +15,22 @@ export function HeroSection() {
             <span className="text-sm font-medium text-foreground">Web3 Powered Heritage Platform</span>
           </div>
 
-          {/* Main headline - ORIGINAL SIZE */}
-          <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
-            <span className="block text-[#8B4513]">Preserving Indonesia{"'"}s Soul, Powered by </span>
-            <span className="bg-gradient-to-r from-[#8B4513] via-[#FFD700] to-[#8B4513] bg-clip-text text-transparent">
-              Blockchain
+          {/* Main headline - DRAMATIC ORIGINAL SIZE */}
+          <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-black leading-none mb-6">
+            <span className="block text-[#8B4513]">Preserving</span>
+            <span className="block bg-gradient-to-r from-[#8B4513] via-[#FFD700] to-[#8B4513] bg-clip-text text-transparent">
+              Indonesia's Soul
             </span>
           </h1>
 
-          <p className="font-serif text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed italic mb-12">
+          <p className="font-serif text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed italic mb-12">
             "Empowering 10 million artisans with blockchain technology, 
             ensuring cultural heritage thrives for generations to come."
           </p>
 
-          {/* CTA Buttons */}
+          {/* CTA Buttons - BOLD TYPOGRAPHY */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-primary text-background hover:bg-primary-dark h-12 px-8 text-base font-semibold gap-2">
+            <Button className="font-sans font-bold uppercase tracking-wider text-sm px-8 py-4 bg-gradient-to-r from-[#8B4513] to-[#FFD700] text-white rounded-lg shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
               Verify Your Craft
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <line x1="5" y1="12" x2="19" y2="12" />
@@ -39,7 +39,7 @@ export function HeroSection() {
             </Button>
             <Button
               variant="outline"
-              className="h-12 px-8 text-base font-semibold border-2 border-primary text-primary hover:bg-primary/5 bg-transparent"
+              className="font-sans font-bold uppercase tracking-wider text-sm px-8 py-4 border-2 border-[#8B4513] text-[#8B4513] hover:bg-[#8B4513]/10 bg-transparent rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
             >
               Explore Marketplace
             </Button>
